@@ -20,7 +20,9 @@
 
   <html>
     <head>
-      <title>Culinary Closet Inventory Mgmt</title>
+      <link rel="stylesheet" href="./css/styles.css">
+      <title>Culinary Closet Inventory Managemt</title>
+
     </head>
 
     <body>
