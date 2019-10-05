@@ -36,6 +36,7 @@
   <html>
 
     <head>
+      <link rel="stylesheet" href="./css/styles.css">
       <title>Culinary Closet Inventory Mgmt</title>
     </head>
 
@@ -46,9 +47,9 @@
             <th>size</th>
             <th>brand</th>
             <th>product_name</th>
-          <th>stock_qty</th>
-          <th>store</th>
-          <th>price</th>
+            <th>stock_qty</th>
+            <th>store</th>
+            <th>price</th>
             <th>edit</th>
             <th>delete</th>
         </tr>

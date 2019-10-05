@@ -19,7 +19,7 @@
     try{
       $statement = $pdo->prepare(
         'UPDATE inventory SET size = :size, brand = :brand, product_name = :product_name, stock_qty = :stock_qty, store = :store, price = :price where id = :id');
-        $statement->execute(["size" => $size, "brand " => $brand , "product_name" => $product_name, "stock_qty" => $stock_qty, "store " => $store , "price" => $price, "id" => $id]);
+        $statement->execute(["size" => $size, "brand" => $brand, "product_name" => $product_name, "stock_qty" => $stock_qty, "store" => $store, "price" => $price, "id" => $id]);
         echo "updated the data";
      } catch(PDOException $e){
       echo "<h4 style='color: red;'>".$e->getMessage(). "</h4>";
@@ -45,6 +45,7 @@
 
   <html>
     <head>
+      <link rel="stylesheet" href="./css/styles.css">
       <title>Culinary Closet Inventory Managemt</title>
     </head>
 
