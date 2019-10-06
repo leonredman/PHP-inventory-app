@@ -22,13 +22,20 @@
     <head>
       <link rel="stylesheet" href="./css/styles.css">
       <title>Culinary Closet Inventory Managemt</title>
-
     </head>
 
     <body>
+      <!-- menu -->
         <a href="./create.php">Create Inventory</a>
         <br>
+        <br>
         <a href="/">Show All Inventory</a>
+        <br>
+        <br>
+        <a href="./shopping_list.php">Current Shopping List</a>
+        <br>
+        <br>
+      <!-- end menu -->
 
         <table>
       <tr>
@@ -36,9 +43,9 @@
         <th>size</th>
         <th>brand</th>
         <th>product_name</th>
-      <th>stock_qty</th>
-      <th>store</th>
-      <th>price</th>
+        <th>stock_qty</th>
+        <th>store</th>
+        <th>price</th>
         <th>edit</th>
         <th>delete</th>
       </tr>
