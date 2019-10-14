@@ -24,11 +24,15 @@ function connectDB(){
       $statement = $pdo->prepare(
         'CREATE TABLE IF NOT EXISTS inventory (
           id int NOT NULL AUTO_INCREMENT PRIMARY KEY,
-          size varchar(255) NOT NULL,
+          category varchar(255) NOT NULL,
+          item varchar(255) NOT NULL,
           brand varchar(255) NOT NULL,
-          product_name varchar(255) NOT NULL,
+          type varchar(255) NOT NULL,
+          unit varchar(255) NOT NULL,
+          size varchar(255) NOT NULL,
+          expiration_date varchar(255) NOT NULL,
           stock_qty int NOT NULL,
-          store varchar(255) NOT NULL,
+          store_location varchar(255) NOT NULL,
           price int NOT NULL
         );'
       );
