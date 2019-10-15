@@ -1,12 +1,16 @@
 body {
-  background-color: #115fc3;
+  /* background-color: #115fc3; */
 }
 
  td {
-   background-color: #efefef;
+   /* background-color: #efefef; */
  }
 
-a {
+/* a {
   font-size:30px;
   color: #9e9e9e;
+} */
+
+.btn {
+  background-color: #fd6440;
 }
