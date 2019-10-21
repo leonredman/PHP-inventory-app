@@ -1,63 +1,28 @@
 <?php
 
-require('database.php');
-initMigration($pdo);
+
+  require('database.php');
+  initMigration($pdo);
+
+  $keywordfromform = $_GET["keyword"];
 
 
+   if($_SERVER['REQUEST_METHOD'] == "GET") {
+     try{
+   $statement = $pdo->prepare(
 
-//
-// if($_SERVER['REQUEST_METHOD'] == "GET") {
-// try{
-//   $statement = $pdo->prepare(
-//     'SELECT * FROM inventory WHERE stock_qty = 0;'
-//   );
-//   $statement->execute();
-//
-//   $results = $statement->fetchAll(PDO::FETCH_OBJ);
-//
-// } catch(PDOException $e){
-//   echo "<h4 style='color: red;'>".$e->getMessage(). "</h4>";
-// }
-// }
+     "SELECT * FROM inventory WHERE type LIKE '%" . $keywordfromform . "%' ORDER BY id DESC"
+   );
+    $statement->execute();
 
+   $results = $statement->fetchAll(PDO::FETCH_OBJ);
 
+ } catch(PDOException $e){
+   echo "<h4 style='color: red;'>".$e->getMessage(). "</h4>";
+   }
+   }
 
-
-
-  // $search_keyword = (!empty($_POST['search_keyword'])) ? $_POST['search_keyword'] : "";
-  //
-  // $sql = 'SELECT * FROM search_page WHERE description LIKE :keyword ORDER BY id DESC ';
-  // $pdo_conn = new PDO("mysql:host=server;dbname=dbname", "user", "pass");
-  // $pdo_statement = $pdo_conn->prepare($query);
-  // $pdo_statement->bindValue(':keyword', '%' . $search_keyword . '%', PDO::PARAM_STR);
-  // $pdo_statement->execute();
-  // if(!$pdo_statement->rowCount()){
-  // //if the results is null
-  // echo "no result found"}else{
-  // //found some row according to your search
-  // //do some operations based on your application
-  // $result = $pdo_statement->fetchAll();
-  // }
-
-
-
-
-//
-// if(issset($_GET['keywords'])) {
-//
-//   $keywords = $db->escape_string($_GET['keywords']);
-//
-//   $query = $db->query("
-//   SELECT title, published
-//   FROM articles
-//   WHERE body LIKE '%{$keywords}%'
-//   OR title LIKE '%{$keywords}%'
-//   ");
-//
-// }
-
-
- ?>
+?>
 
 
  <html>
@@ -86,28 +51,55 @@ initMigration($pdo);
      <br>
    <!-- end menu -->
 
- <!-- search form -->
-   <form action="search.php" method="get">
+    <form action="search.php" method="get">
      <label>
        Search Products
-       <input type="text" name="product_name" autocomplete="off">
+       <input type="text" name="keyword" autocomplete="off">
      </label>
 
-     <input type="submit" value="search">
+     <input type="submit" value="Submit">
    </form>
+   <br> <br>
  <!-- search form  end-->
  <table class="table table-hover">
 <tr>
- <th>id</th>
- <th>size</th>
- <th>brand</th>
- <th>product_name</th>
- <th>stock_qty</th>
- <th>store</th>
- <th>price</th>
- <th>edit</th>
- <th>delete</th>
+  <th>id</th>
+  <th>category</th>
+  <th>item</th>
+  <th>brand</th>
+  <th>type</th>
+  <th>unit</th>
+  <th>size</th>
+  <th>expiration_date</th>
+  <th>stock_qty</th>
+  <th>store_location</th>
+  <th>price</th>
+  <th>edit</th>
+  <th>delete</th>
 </tr>
+
+<?php foreach($results as $inventory) { ?>
+  <tr>
+    <td><?php echo $inventory->id; ?></td>
+    <td><?php echo $inventory->category; ?></td>
+    <td><?php echo $inventory->item; ?></td>
+    <td><?php echo $inventory->brand; ?></td>
+    <td><?php echo $inventory->type; ?></td>
+    <td><?php echo $inventory->unit; ?></td>
+    <td><?php echo $inventory->size; ?></td>
+    <td><?php echo $inventory->expiration_date; ?></td>
+    <td><?php echo $inventory->stock_qty; ?></td>
+    <td><?php echo $inventory->store_location; ?></td>
+    <td><?php echo $inventory->price; ?></td>
+    <td>
+      <a href="./update.php?id=<?php echo $inventory->id; ?>">edit</a>
+    </td>
+    <td>
+      <a href="./delete.php?id=<?php echo $inventory->id; ?>" onclick="confirm()">delete</a>
+    </td>
+  </tr>
+
+  <?php } ?>
 </table>
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

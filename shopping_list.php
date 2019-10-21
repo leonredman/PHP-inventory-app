@@ -15,8 +15,8 @@
   } catch(PDOException $e){
     echo "<h4 style='color: red;'>".$e->getMessage(). "</h4>";
   }
-}
- ?>
+  }
+?>
 
  <html>
    <head>

@@ -3,6 +3,8 @@
     require('database.php');
     initMigration($pdo);
 
+    $keywordfromform = $_GET["keyword"];
+
     if($_SERVER['REQUEST_METHOD'] == "GET") {
     try{
       $statement = $pdo->prepare(
@@ -57,10 +59,10 @@
         <form action="search.php" method="get">
           <label>
             Search Products
-            <input type="text" name="item" autocomplete="off">
+            <input type="text" name="keyword" autocomplete="off">
           </label>
 
-          <input type="submit" value="search">
+          <input type="submit" value="Submit">
         </form>
       <!-- search form  end-->
     </div>
