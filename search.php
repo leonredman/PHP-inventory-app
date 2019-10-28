@@ -11,7 +11,11 @@
      try{
    $statement = $pdo->prepare(
 
-     "SELECT * FROM inventory WHERE type LIKE '%" . $keywordfromform . "%' ORDER BY id DESC"
+     // "SELECT * FROM inventory WHERE item LIKE '%" . $keywordfromform . "%' ORDER BY id DESC"
+     "SELECT * FROM inventory WHERE item LIKE '%" . $keywordfromform . "%'
+    OR brand LIKE '%" . $keywordfromform . "%'
+    OR type LIKE '%" . $keywordfromform . "%'
+    ORDER BY id DESC"
    );
     $statement->execute();
 

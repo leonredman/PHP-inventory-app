@@ -9,7 +9,7 @@ function connectDB(){
 
     $database = new PDO('mysql:host=localhost;dbname=inventory', 'root', 'root');
     $database->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    echo "<h4 style='color: green;'>Connected to database</h4>";
+    echo "<h4 style='color: green;'>Database Connected</h4>";
     return $database;
   } catch(PDOException $e){
     echo "<h4 style='color: red;'>".$e->getMessage(). "</h4>";

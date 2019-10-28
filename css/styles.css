@@ -14,3 +14,25 @@ body {
 .btn {
   background-color: #fd6440;
 }
+
+.search-btn {
+  background-color: red;
+}
+
+#aside {
+  height:810px;
+}
+
+img {
+  width: 80%;
+}
+
+ #aside a {
+  color:grey;
+}
+
+.logo h6 {
+  display:none;
+  margin-top: -50px
+  background-color:green;
+}
