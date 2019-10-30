@@ -25,7 +25,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-      <!-- Bootstrap CSS -->
+      <!-- Bootstrap sCSS -->
       <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
         <link rel="stylesheet" href="./css/styles.css">
@@ -35,13 +35,16 @@
     <body>
 
   <div class="d-flex flex-row">
-        <div class="col-2 p-3 mb-2 bg-dark text-white text-center" id="aside">
+        <div class="col-2 p-3 mb-2 text-white text-center" id="aside">
           <div class="logo">
             <img src="./images/logo_trans2.png">
               <h6>WEABLE INVENTORY</h6>
           </div>
 
               <!-- menu -->
+              <div class="aside-menu">
+
+
                 <a href="./create.php" class="text-secondary">Create Inventory</a>
                 <br>
                 <br>
@@ -53,10 +56,17 @@
                 <br>
                 <a href="./search.php" class="text-secondary">Search Products</a>
               <!-- end menu -->
+              </div>
         </div>
 
           <div>
+            <div class="menu-bar">
+
+            </div>
+            <br>
               <!-- search form -->
+              <div class="search-form">
+
               <form action="search.php" method="get">
                 <label>
                   Search Products
@@ -65,8 +75,11 @@
 
                 <input type="submit" value="Submit">
               </form>
+                </div>
               <!-- search form  end-->
+              <div class="row-seperator">
 
+              </div>
             <table class="table table-hover">
               <tr>
                 <th>id</th>
