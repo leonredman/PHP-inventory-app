@@ -1,32 +1,31 @@
-<?php
+  <?php
 
+    require('database.php');
+    initMigration($pdo);
 
-  require('database.php');
-  initMigration($pdo);
+    $keywordfromform = $_GET["keyword"];
 
-  $keywordfromform = $_GET["keyword"];
+     if($_SERVER['REQUEST_METHOD'] == "GET") {
+       try{
+     $statement = $pdo->prepare(
 
+       // "SELECT * FROM inventory WHERE item LIKE '%" . $keywordfromform . "%' ORDER BY id DESC"
+       "SELECT * FROM inventory WHERE item LIKE '%" . $keywordfromform . "%'
+      OR category LIKE '%" . $keywordfromform . "%'
+      OR item LIKE '%" . $keywordfromform . "%'
+      OR brand LIKE '%" . $keywordfromform . "%'
+      OR type LIKE '%" . $keywordfromform . "%'
+      ORDER BY id DESC"
+     );
+      $statement->execute();
 
-   if($_SERVER['REQUEST_METHOD'] == "GET") {
-     try{
-   $statement = $pdo->prepare(
+     $results = $statement->fetchAll(PDO::FETCH_OBJ);
 
-     // "SELECT * FROM inventory WHERE item LIKE '%" . $keywordfromform . "%' ORDER BY id DESC"
-     "SELECT * FROM inventory WHERE item LIKE '%" . $keywordfromform . "%'
-    OR brand LIKE '%" . $keywordfromform . "%'
-    OR type LIKE '%" . $keywordfromform . "%'
-    ORDER BY id DESC"
-   );
-    $statement->execute();
-
-   $results = $statement->fetchAll(PDO::FETCH_OBJ);
-
- } catch(PDOException $e){
-   echo "<h4 style='color: red;'>".$e->getMessage(). "</h4>";
-   }
-   }
-
-?>
+   } catch(PDOException $e){
+     echo "<h4 style='color: red;'>".$e->getMessage(). "</h4>";
+     }
+     }
+  ?>
 
 
  <html>
@@ -35,25 +34,54 @@
      <meta charset="utf-8">
      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-     <!-- Bootstrap CSS -->
+     <!-- Bootstrap sCSS -->
      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
-     <!-- <link rel="stylesheet" href="./css/styles.css"> -->
-     <title>Culinary Closet Inventory Managemt</title>
+     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+     <link rel="stylesheet" href="./css/styles.css">
+     <title>Weable Inventory Managemt</title>
    </head>
 
    <body>
 
-     <a href="./create.php">Create Inventory</a>
-     <br>
-     <br>
-     <a href="/">Show All Inventory</a>
-     <br>
-     <br>
-     <a href="./shopping_list.php">Current Shopping List</a>
-     <br>
-     <br>
+     <div class="d-flex flex-row">
+           <div class="col-2 p-3 mb-2 text-white text-center" id="aside">
+             <div class="logo">
+               <img src="./images/logo_trans2.png">
+                 <h5>WEABLE INVENTORY</h5>
+             </div>
+
+                 <!-- menu -->
+                 <div class="aside-menu">
+
+
+
+
+
+                   <h6>Dashboard</h6>
+
+
+                   <a href="./create.php" class="text-secondary">Create Inventory</a>
+                   <br>
+                   <br>
+                   <a href="/" class="text-secondary">All Inventory</a>
+                   <br>
+                   <br>
+                   <a href="./shopping_list.php" class="text-secondary">Shopping List</a>
+                   <br>
+                   <br>
    <!-- end menu -->
+ </div>
+</div>
+
+
+<div>
+  <div class="menu-bar">
+
+
+  </div>
+  <br>
+  <br>
+
 
     <form action="search.php" method="get">
      <label>
@@ -65,6 +93,12 @@
    </form>
    <br> <br>
  <!-- search form  end-->
+
+ <div class="row-seperator">
+
+ </div>
+
+
  <table class="table table-hover">
 <tr>
   <th>id</th>
