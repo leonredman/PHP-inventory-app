@@ -1,22 +1,22 @@
-<?php
+  <?php
 
-  require('database.php');
-  initMigration($pdo);
+    require('database.php');
+    initMigration($pdo);
 
-  if($_SERVER['REQUEST_METHOD'] == "GET") {
-  try{
-    $statement = $pdo->prepare(
-      'SELECT * FROM inventory WHERE stock_qty = 0;'
-    );
-    $statement->execute();
+    if($_SERVER['REQUEST_METHOD'] == "GET") {
+    try{
+      $statement = $pdo->prepare(
+        'SELECT * FROM inventory WHERE stock_qty = 0;'
+      );
+      $statement->execute();
 
-    $results = $statement->fetchAll(PDO::FETCH_OBJ);
+      $results = $statement->fetchAll(PDO::FETCH_OBJ);
 
-  } catch(PDOException $e){
-    echo "<h4 style='color: red;'>".$e->getMessage(). "</h4>";
-  }
-  }
-?>
+    } catch(PDOException $e){
+      echo "<h4 style='color: red;'>".$e->getMessage(). "</h4>";
+    }
+    }
+  ?>
 
  <html>
    <head>
@@ -25,23 +25,70 @@
 
      <!-- Bootstrap CSS -->
      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
-     <!-- <link rel="stylesheet" href="./css/styles.css"> -->
-     <title>Culinary Closet Inventory Managemt</title>
+     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+     <link rel="stylesheet" href="./css/styles.css">
+     <title>Weable Inventory Managemt</title>
    </head>
 
    <body>
+     <div class="d-flex flex-row">
+           <div class="col-2 p-3 mb-2 text-white text-center" id="aside">
+             <div class="logo">
+               <img src="./images/logo_trans2.png">
+                 <h5>WEABLE INVENTORY</h5>
+             </div>
+
+                 <!-- menu -->
+                 <div class="aside-menu">
+
+
+
+
+
+                   <h6>Dashboard</h6>
+
      <!-- menu -->
-       <a href="./create.php">Create Inventory</a>
-       <br>
-       <br>
-       <a href="/">Show All Inventory</a>
-       <br>
-       <br>
-       <a href="./shopping_list.php">Current Shopping List</a>
-       <br>
-       <br>
-     <!-- end menu -->
+     <a href="./create.php" class="text-secondary">Create Inventory</a>
+     <br>
+     <br>
+     <a href="/" class="text-secondary">All Inventory</a>
+     <br>
+     <br>
+     <a href="./shopping_list.php" class="text-secondary">Shopping List</a>
+     <br>
+     <br>
+     <!-- <a href="./search.php" class="text-secondary">Search Products</a> -->
+   <!-- end menu -->
+
+ </div>
+</div>
+
+<div>
+<div class="menu-bar">
+
+
+</div>
+<br>
+ <!-- search form -->
+ <div class="search-form">
+     <h4> Shopping List</h4>
+     <br> <br>
+ <form action="search.php" method="get">
+   <label>
+     Search Products
+     <input type="text" name="keyword" autocomplete="off">
+   </label>
+
+   <input type="submit" class="btn text-light" value="Submit">
+ </form>
+   </div>
+   <br>
+ <!-- search form  end-->
+ <div class="row-seperator">
+
+ </div>
+
+
 
        <table class="table table-hover">
      <tr>
