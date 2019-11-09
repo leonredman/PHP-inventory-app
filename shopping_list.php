@@ -58,6 +58,7 @@
      <br>
      <br>
      <!-- <a href="./search.php" class="text-secondary">Search Products</a> -->
+     <a href="/">Go Back</a>
    <!-- end menu -->
 
  </div>
