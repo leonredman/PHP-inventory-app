@@ -18,13 +18,14 @@
      $stock_qty = $_POST["stock_qty"];
      $store_location = $_POST["store_location"];
      $price = $_POST["price"];
-    $id = $_GET["id"];
+     $id = $_GET["id"];
 
     try{
       $statement = $pdo->prepare(
-        'UPDATE inventory SET category = :category, item = :item, brand = :brand, type = :type, unit = :unit, size = :size, expiration_date = :expiration_date, stock_qty = :stock_qty, store_location = :store_location, price = :price where id = :id');
+        'UPDATE inventory SET category = :category, item = :item, brand = :brand, type = :type, unit = :unit, size = :size, expiration_date = :expiration_date,
+        stock_qty = :stock_qty, store_location = :store_location, price = :price where id = :id');
         $statement->execute(['category' => $category, 'item' => $item, 'brand' => $brand, 'type' => $type, 'unit' => $unit,
-         'size' => $size, 'expiration_date' => $expiration_date, 'stock_qty' => $stock_qty, 'store_location' => $store_location, 'price' => $price]);
+         'size' => $size, 'expiration_date' => $expiration_date, 'stock_qty' => $stock_qty, 'store_location' => $store_location, 'price' => $price, "id" => $id]);
         echo "updated the data";
      } catch(PDOException $e){
       echo "<h4 style='color: red;'>".$e->getMessage(). "</h4>";
