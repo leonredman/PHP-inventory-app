@@ -67,6 +67,7 @@
                     <a href="./shopping_list.php" class="text-secondary">Shopping List</a>
                     <br><br>
                     <!-- <a href="./search.php" class="text-secondary">Search Products</a> -->
+                    <a href="/">Go Back</a>
                 </div>
                 <!-- end menu -->
           </div>
@@ -127,7 +128,7 @@
 
         <button type="submit">Save</button>
       </form>
-      <a href="/">Go Back</a>
+
 
      </div>
     </div>
