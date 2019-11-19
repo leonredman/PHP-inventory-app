@@ -69,13 +69,6 @@
        <body style="background:transparent url('./images/background-image.jpg') no-repeat center center /cover">
        <br>
 
-          <?php
-            if(isset($message))
-            {
-              echo '<label class="text-danger">'.$message.'</label>';
-            }
-          ?>
-
          <div class="container" style="width: 600px; margin-top:100px;">
            <h1 align="center">WELCOME<br> TO<br> WEABLE INVENTORY</h1>
            <br>
@@ -92,7 +85,13 @@
              <br>
              <input type="submit" name="login" class="btn btn-info" value="Login" />
            </form>
-
+           
+           <?php
+             if(isset($message))
+             {
+               echo '<label class="text-danger">'.$message.'</label>';
+             }
+           ?>
           </div>
          </div>
        </body>
