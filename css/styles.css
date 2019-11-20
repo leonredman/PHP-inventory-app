@@ -18,6 +18,10 @@
     width: 80%;
   }
 
+  .background img {
+    width: 100%;
+  }
+
   #aside a {
     color:grey;
   }
@@ -35,13 +39,13 @@
     margin-left:50px;
     background-color: #324047;
     height: 50px;
-    width: 350%;
+    width: 1200px;
   }
 
   .menu-bar {
     background-color: #fd6440;
     height: 50px;
-    width:350%;
+    width:1200px;
 
   }
 
@@ -63,4 +67,14 @@
   .fad {
     width: 100px;
     color: white;
+  }
+
+  .form-container{
+    background-color: white;
+    padding: 40px;
+    border-radius:4px;
+  }
+
+  .container h1, h3{
+    color:white;
   }
