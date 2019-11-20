@@ -72,7 +72,7 @@
                 <!-- end menu -->
           </div>
 
-              <div>
+        <div>
                   <div class="menu-bar"></div>
                   <br></br>
 
@@ -96,41 +96,89 @@
 
       <form class="form  ml-4 pl-4" action="./create.php" method="POST">
 
+        <!-- <label for="category">category</label><br>
+        <input type="text" name="category" value=""><br> -->
+
         <label for="category">category</label><br>
-        <input type="text" name="category" value=""><br>
+        <select name="category">
+          <option value="Beverages">Beverages</option>
+          <option value="Cereal/Breakfast">Cereal/Breakfast</option>
+          <option value="Condiments/Oils">Condiments/Oils</option>
+          <option value="Cleaning Supplies">Cleaning Supplies</option>
+          <option value="Dairy">Dairy</option>
+          <option value="Frozen">Frozen</option>
+          <option value="Fruits">Fruits</option>
+          <option value="Fish">Fish</option>
+          <option value="Grains">Grains</option>
+          <option value="Meat">Meat</option>
+          <option value="Paper Goods">Paper Goods</option>
+          <option value="Poultry">Poultry</option>
+          <option value="Snacks">Snacks</option>
+          <option value="Veggies">Veggies</option>
+        </select>
 
-        <label for="item">Item</label><br>
-        <input type="text" name="item" value=""><br>
+        <br>
+        <br>
 
-        <label for="brand">Brand</label><br>
-        <input type="text" name="brand" value=""><br>
+          <div class="row">
+              <div class="col-4">
+                <label for="item">Item</label><br>
+                <input type="text" name="item" value=""><br>
+              </div>
 
-        <label for="type">Type</label><br>
-        <input type="text" name="type" value=""><br>
+              <div class="col-4">
+                <label for="brand">Brand</label><br>
+                <input type="text" name="brand" value=""><br>
+              </div>
 
-        <label for="unit">Unit</label><br>
-        <input type="text" name="unit" value=""><br>
+              <div class="col-4">
+                <label for="type">Type</label><br>
+                <input type="text" name="type" value=""><br>
+              </div>
+          </div>
 
-        <label for="size">Size</label><br>
-        <input type="text" name="size" value=""><br>
+            <br>
 
-        <label for="expiration_date">Expiration Date</label><br>
-        <input type="text" name="expiration_date" value=""><br>
+          <div class="row">
+              <div class="col-4">
+                <label for="unit">Unit</label><br>
+                <input type="text" name="unit" value=""><br>
+              </div>
 
-        <label for="stock_qty">Stock Qty</label><br>
-        <input type="text" name="stock_qty" value=""><br>
+              <div class="col-4">
+                <label for="size">Size</label><br>
+                <input type="text" name="size" value=""><br>
+              </div>
 
-        <label for="store_location">Store Location</label><br>
-        <input type="text" name="store_location" value=""><br>
+              <div class="col-4">
+                <label for="expiration_date">Expiration Date</label><br>
+                <input type="text" name="expiration_date" value=""><br>
+              </div>
+          </div>
 
-        <label for="price">Price</label><br>
-        <input type="text" name="price" value=""><br>
+            <br>
 
-        <button type="submit">Save</button>
-      </form>
+          <div class="row">
+            <div class="col-4">
+              <label for="stock_qty">Stock Qty</label><br>
+              <input type="text" name="stock_qty" value=""><br>
+            </div>
 
+            <div class="col-4">
+              <label for="store_location">Store Location</label><br>
+              <input type="text" name="store_location" value=""><br>
+            </div>
 
-     </div>
+            <br>
+
+            <div class="col-4">
+              <label for="price">Price</label><br>
+              <input type="text" name="price" value=""><br>
+            </div>
+
+            <button class="create-btn mt-5" type="submit">Save</button>
+        </form>
+        </div>
     </div>
 
     </div>
