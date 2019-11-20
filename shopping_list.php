@@ -93,34 +93,34 @@
 
        <table class="table table-hover">
      <tr>
-       <th>id</th>
-       <th>category</th>
+       <!-- <th>id</th> -->
+       <!-- <th>category</th> -->
        <th>item</th>
        <th>brand</th>
        <th>type</th>
        <th>unit</th>
        <th>size</th>
-       <th>expiration_date</th>
+       <!-- <th>expiration_date</th> -->
        <th>stock_qty</th>
        <th>store_location</th>
-       <th>price</th>
+       <!-- <th>price</th> -->
        <th>edit</th>
        <th>delete</th>
      </tr>
 
    <?php foreach($results as $inventory) { ?>
      <tr>
-       <td><?php echo $inventory->id; ?></td>
-       <td><?php echo $inventory->category; ?></td>
+       <!-- <td><?php echo $inventory->id; ?></td> -->
+       <!-- <td><?php echo $inventory->category; ?></td> -->
        <td><?php echo $inventory->item; ?></td>
        <td><?php echo $inventory->brand; ?></td>
        <td><?php echo $inventory->type; ?></td>
        <td><?php echo $inventory->unit; ?></td>
        <td><?php echo $inventory->size; ?></td>
-       <td><?php echo $inventory->expiration_date; ?></td>
+       <!-- <td><?php echo $inventory->expiration_date; ?></td> -->
        <td><?php echo $inventory->stock_qty; ?></td>
        <td><?php echo $inventory->store_location; ?></td>
-       <td><?php echo $inventory->price; ?></td>
+       <!-- <td><?php echo $inventory->price; ?></td> -->
        <td>
          <a href="./update.php?id=<?php echo $inventory->id; ?>">edit</a>
        </td>
