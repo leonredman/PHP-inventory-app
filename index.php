@@ -18,21 +18,35 @@
     require('database.php');
     initMigration($pdo);
 
+    // pagination user input tutorial https://www.youtube.com/watch?v=8WoxPWVxXHI
+     $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
+     $perPage = isset($_GET['per-page']) && $_GET['per-page'] <= 50 ? (int)$_GET['per-page'] : 3;
+     // positioning
+
+     $start = ($page > 1) ? ($page * $perPage) - $perPage : 0;
+
+
     $keywordfromform = $_GET["keyword"];
 
     if($_SERVER['REQUEST_METHOD'] == "GET") {
     try{
       $statement = $pdo->prepare(
-        'SELECT * FROM inventory;'
+        "SELECT SQL_CALC_FOUND_ROWS * FROM inventory LIMIT {$start}, {$perPage};"
       );
       $statement->execute();
 
       $results = $statement->fetchAll(PDO::FETCH_OBJ);
       // echo "Read from table users</br>";
+
+      //PAGES
+     $total = $pdo->query("SELECT FOUND_ROWS() as total")->fetch()['total'];
+     $pages = ceil($total / $perPage);
+
     } catch(PDOException $e){
       echo "<h4 style='color: red;'>".$e->getMessage(). "</h4>";
     }
   }
+
   ?>
 
   <html>
@@ -103,9 +117,18 @@
                 </div>
                 <br>
               <!-- search form  end-->
+
+              <br>
+              <div class="pagination">
+                <p>Displaying Pages </p>
+                <?php for($x = 1; $x <= $pages; $x++): ?>
+                  <a href="?page=<?php echo $x; ?>&per-page=<?php echo $perPage; ?>"<?php if($page === $x) {echo ' class="selected"'; } ?>><?php echo $x; ?></a>
+                <?php endfor; ?>
+              </div>
               <div class="row-seperator">
 
               </div>
+
               <div>
             <table class="table table-hover">
               <tr>
