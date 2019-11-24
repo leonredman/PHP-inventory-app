@@ -121,17 +121,17 @@
         <br>
 
           <div class="row">
-              <div class="col-4">
+              <div class="col-3">
                 <label for="item">Item</label><br>
                 <input type="text" name="item" value=""><br>
               </div>
 
-              <div class="col-4">
+              <div class="col-3">
                 <label for="brand">Brand</label><br>
                 <input type="text" name="brand" value=""><br>
               </div>
 
-              <div class="col-4">
+              <div class="col-3">
                 <label for="type">Type</label><br>
                 <input type="text" name="type" value=""><br>
               </div>
@@ -140,17 +140,17 @@
             <br>
 
           <div class="row">
-              <div class="col-4">
+              <div class="col-3">
                 <label for="unit">Unit</label><br>
                 <input type="text" name="unit" value=""><br>
               </div>
 
-              <div class="col-4">
+              <div class="col-3">
                 <label for="size">Size</label><br>
                 <input type="text" name="size" value=""><br>
               </div>
 
-              <div class="col-4">
+              <div class="col-3">
                 <label for="expiration_date">Expiration Date</label><br>
                 <input type="text" name="expiration_date" value=""><br>
               </div>
@@ -159,24 +159,27 @@
             <br>
 
           <div class="row">
-            <div class="col-4">
+            <div class="col-3">
               <label for="stock_qty">Stock Qty</label><br>
               <input type="text" name="stock_qty" value=""><br>
             </div>
 
-            <div class="col-4">
+            <div class="col-3">
               <label for="store_location">Store Location</label><br>
               <input type="text" name="store_location" value=""><br>
             </div>
 
             <br>
 
-            <div class="col-4">
+            <div class="col-3">
               <label for="price">Price</label><br>
               <input type="text" name="price" value=""><br>
             </div>
+          </div>
+            <br>
 
-            <button class="create-btn mt-5" type="submit">Save</button>
+            <button class="create-btn mt-3" type="submit">Save</button>
+          
         </form>
         </div>
     </div>
