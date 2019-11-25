@@ -51,46 +51,130 @@
 
   <html>
     <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+      <!-- Bootstrap CSS -->
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+      <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
       <link rel="stylesheet" href="./css/styles.css">
-      <title>Culinary Closet Inventory Managemt</title>
+      <title>Weable Inventory Managemt</title>
     </head>
 
     <body>
-      <form action="./update.php?id=<?php echo $results[0]->id; ?>" method="POST">
-        <input type="hidden" name="_method" value="PUT">
 
-        <label for="category">Category</label><br>
-        <input type="text" name="category" value="<?php echo $results[0]->category; ?>"><br>
+      <div class="d-flex flex-row">
+          <div class="col-2 p-3 mb-2 text-white text-center" id="create-aside">
+              <div class="logo">
+                <img src="./images/logo_trans2.png">
+                  <h5>WEABLE INVENTORY</h5>
+              </div>
 
-        <label for="item">Item</label><br>
-        <input type="text" name="item" value="<?php echo $results[0]->item; ?>"><br>
+                <!-- menu -->
+                <div class="aside-menu">
+                  <h6>Dashboard</h6>
+                    <a href="./create.php" class="text-secondary">Create Inventory</a>
+                    <br><br>
+                    <a href="/" class="text-secondary">All Inventory</a>
+                    <br><br>
+                    <a href="./shopping_list.php" class="text-secondary">Shopping List</a>
+                    <br><br>
+                    <!-- <a href="./search.php" class="text-secondary">Search Products</a> -->
+                    <a href="/">Go Back</a>
+                </div>
+                <!-- end menu -->
+          </div>
 
-        <label for="brand">Brand</label><br>
-        <input type="text" name="brand" value="<?php echo $results[0]->brand; ?>"><br>
+              <div>
+                  <div class="menu-bar"></div>
+                  <br></br>
 
-        <label for="type">Type</label><br>
-        <input type="text" name="type" value="<?php echo $results[0]->type; ?>"><br>
+                 <!-- search form -->
+                  <div class="search-form">
+                      <h4> Update Inventory</h4>
+                      <br> <br>
+                        <form action="search.php" method="get">
+                          <label>
+                            Search Products
+                              <input type="text" name="keyword" autocomplete="off">
+                          </label>
 
-        <label for="unit">Unit</label><br>
-        <input type="text" name="unit" value="<?php echo $results[0]->unit; ?>"><br>
+                          <input type="submit" class="btn text-light" value="Submit">
+                        </form>
+                  </div>
+                      <br>
+                 <!-- search end -->
+                  <div class="row-seperator"></div>
+                <br><br>
 
-        <label for="size">Size</label><br>
-        <input type="text" name="size" value="<?php echo $results[0]->size; ?>"><br>
 
-        <label for="expiration_date">Expiration Date</label><br>
-        <input type="text" name="expiration_date" value="<?php echo $results[0]->expiration_date; ?>"><br>
 
-        <label for="stock_qty">Stock Qty</label><br>
-        <input type="text" name="stock_qty" value="<?php echo $results[0]->stock_qty; ?>"><br>
 
-        <label for="store_location">Store Location</label><br>
-        <input type="text" name="store_location" value="<?php echo $results[0]->store_location; ?>"><br>
+                <form class="form ml-4 pl-4" action="./update.php?id=<?php echo $results[0]->id; ?>" method="POST">
+                  <input type="hidden" name="_method" value="PUT">
 
-        <label for="price">Price</label><br>
-        <input type="text" name="price" value="<?php echo $results[0]->price; ?>"><br>
-        <button type="submit">Save</button>
-      </form>
-      <a href="/">Go Back</a>
-    </body>
+                  <label for="category">Category</label><br>
+                  <input type="text" name="category" value="<?php echo $results[0]->category; ?>"><br><br>
+
+                  <div class="row">
+                      <div class="col-4">
+
+                        <label for="item">Item</label><br>
+                        <input type="text" name="item" value="<?php echo $results[0]->item; ?>"><br>
+                      </div>
+
+
+                      <div class="col-4">
+                        <label for="brand">Brand</label><br>
+                        <input type="text" name="brand" value="<?php echo $results[0]->brand; ?>"><br>
+                      </div>
+
+                      <div class="col-4">
+                        <label for="type">Type</label><br>
+                        <input type="text" name="type" value="<?php echo $results[0]->type; ?>"><br>
+                      </div>
+                  </div>
+
+                  <br>
+
+                  <div class="row">
+                      <div class="col-4">
+                        <label for="unit">Unit</label><br>
+                        <input type="text" name="unit" value="<?php echo $results[0]->unit; ?>"><br>
+                      </div>
+
+                      <div class="col-4">
+                        <label for="size">Size</label><br>
+                        <input type="text" name="size" value="<?php echo $results[0]->size; ?>"><br>
+                      </div>
+
+                      <div class="col-4">
+                        <label for="expiration_date">Expiration Date</label><br>
+                        <input type="text" name="expiration_date" value="<?php echo $results[0]->expiration_date; ?>"><br>
+                      </div>
+                  </div>
+
+                  <br>
+
+                  <div class="row">
+                      <div class="col-4">
+                        <label for="stock_qty">Stock Qty</label><br>
+                        <input type="text" name="stock_qty" value="<?php echo $results[0]->stock_qty; ?>"><br>
+                      </div>
+
+                      <div class="col-4">
+                        <label for="store_location">Store Location</label><br>
+                        <input type="text" name="store_location" value="<?php echo $results[0]->store_location; ?>"><br>
+                      </div>
+
+                      <div class="col-4">
+                        <label for="price">Price</label><br>
+                        <input type="text" name="price" value="<?php echo $results[0]->price; ?>"><br>
+                      </div>
+                  </div>
+                  <button class="update-btn mt-5" type="submit">Save</button>
+                </form>
+
+              </body>
 
   </html>
