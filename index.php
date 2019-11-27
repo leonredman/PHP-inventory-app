@@ -6,8 +6,8 @@
 
   if(isset($_SESSION["username"]))
   {
-    echo '<h3>Login Success, Welcome - '.$_SESSION["username"].'</h3>';
-    echo '<br /><br /><a href="/logout.php">Logout</a>';
+    // echo '<h3>Login Success, Welcome - '.$_SESSION["username"].'</h3>';
+    // echo '<br /><br /><a href="/logout.php">Logout</a>';
   }
   else {
     {
@@ -65,6 +65,11 @@
 
     <body>
 
+
+
+
+
+
   <div class="d-flex flex-row">
         <div class="col-2 p-3 mb-2 text-white text-center" id="aside">
           <div class="logo">
@@ -99,6 +104,49 @@
         </div>
 
           <div>
+
+            <nav class="navbar navbar-expand-lg navbar-light" id="navbar-responsive">
+              <a class="navbar-brand" href="/">Weable Inventory</a>
+              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                  <li class="nav-item active">
+                    <a class="nav-link" href="./create.php">Create Inventory <span class="sr-only">(current)</span></a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/">All Inventory</a>
+                  </li>
+
+                  <li class="nav-item">
+                    <a class="nav-link" href="./shopping_list.php">Shopping List</a>
+                  </li>
+
+                  <li class="nav-item">
+                    <a class="nav-link" href="/">Go Back</a>
+                  </li>
+
+                  <li class="nav-item">
+                    <a class="nav-link" href="./logout.php">Log Out</a>
+                  </li>
+                </ul>
+
+              </div>
+            </nav>
+
+
+
+
+
+
+
+
+
+
+
+
             <div class="menu-bar">
             </div>
             <br>
@@ -119,11 +167,13 @@
               <!-- search form  end-->
 
               <br>
-              <div class="pagination">
+              <div class="pagination ml-5 mr-2 pl-3">
                 <p>Displaying Pages </p>
+                <div class="page-count">
                 <?php for($x = 1; $x <= $pages; $x++): ?>
                   <a href="?page=<?php echo $x; ?>&per-page=<?php echo $perPage; ?>"<?php if($page === $x) {echo ' class="selected"'; } ?>><?php echo $x; ?></a>
                 <?php endfor; ?>
+              </div>
               </div>
               <div class="row-seperator">
 
