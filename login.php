@@ -69,7 +69,7 @@
        <body style="background:transparent url('./images/background-image.jpg') no-repeat center center /cover">
        <br>
 
-         <div class="container" style="width: 600px; margin-top:100px;">
+         <div class="container col-lg-4 col-md-8 col-sm-4 col-xs-3">
            <h1 align="center">WELCOME<br> TO<br> WEABLE INVENTORY</h1>
            <br>
            <h3 align="center">USER LOGIN</h3>
@@ -85,7 +85,7 @@
              <br>
              <input type="submit" name="login" class="btn btn-info" value="Login" />
            </form>
-           
+
            <?php
              if(isset($message))
              {
