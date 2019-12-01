@@ -109,7 +109,7 @@
                   <li class="nav-item">
                     <a class="nav-link" href="./create.php">Create Inventory</a>
                   </li>
-                  
+
                   <li class="nav-item">
                     <a class="nav-link" href="/">All Inventory</a>
                   </li>
