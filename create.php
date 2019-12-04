@@ -49,9 +49,12 @@
     </head>
 
     <body>
+      <div class="container-fluid">
+          <div class="row">
+        <div class="col-2" id="aside">
 
-      <div class="d-flex flex-row">
-          <div class="col-2 p-3 mb-2 text-white text-center" id="create-aside">
+      <!-- <div class="d-flex flex-row"> -->
+          <!-- <div class="col-2 p-3 mb-2 text-white text-center" id="create-aside"> -->
               <div class="logo">
                 <img src="./images/logo_trans2.png">
                   <h5>WEABLE INVENTORY</h5>
@@ -61,20 +64,23 @@
                 <div class="aside-menu">
                   <h6>Dashboard</h6>
                     <a href="./create.php" class="text-secondary">Create Inventory</a>
-                    <br><br>
+                    <br>
+                    <br>
                     <a href="/" class="text-secondary">All Inventory</a>
-                    <br><br>
+                    <br>
+                    <br>
                     <a href="./shopping_list.php" class="text-secondary">Shopping List</a>
-                    <br><br>
-                    <!-- <a href="./search.php" class="text-secondary">Search Products</a> -->
+                    <br>
+                    <br>
                     <a href="/">Go Back</a>
+                    <!-- <a href="./search.php" class="text-secondary">Search Products</a> -->
+                    <!-- end menu -->
                 </div>
-                <!-- end menu -->
           </div>
 
-        <div>
+        <div class="col">
 
-          <nav class="navbar navbar-expand-lg navbar-light" id="navbar-responsive">
+          <nav class="navbar navbar-expand-lg navbar-light col-10" id="navbar-responsive">
             <a class="navbar-brand" href="/">Weable Inventory</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
@@ -82,8 +88,8 @@
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
               <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                  <a class="nav-link" href="./create.php">Create Inventory <span class="sr-only">(current)</span></a>
+                <li class="nav-item">
+                  <a class="nav-link" href="./create.php">Create Inventory</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="/">All Inventory</a>
@@ -114,7 +120,8 @@
 
 
                   <div class="menu-bar"></div>
-                  <br></br>
+                  <br>
+                  <br>
 
                  <!-- search form -->
                   <div class="search-form">
