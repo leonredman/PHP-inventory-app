@@ -97,7 +97,7 @@
 
           <div class="col">
 
-            <nav class="navbar navbar-expand-lg navbar-light col-10" id="navbar-responsive">
+            <nav class="navbar navbar-expand-lg navbar-light col-10 col-s-12" id="navbar-responsive">
               <a class="navbar-brand" href="/">Weable Inventory</a>
               <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
