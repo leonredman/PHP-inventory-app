@@ -62,9 +62,11 @@
     </head>
 
     <body>
-
-      <div class="d-flex flex-row">
-          <div class="col-2 p-3 mb-2 text-white text-center" id="create-aside">
+      <div class="container-fluid">
+      <div class="row">
+      <div class="col-2" id="aside">
+      <!-- <div class="d-flex flex-row">
+          <div class="col-2 p-3 mb-2 text-white text-center" id="create-aside"> -->
               <div class="logo">
                 <img src="./images/logo_trans2.png">
                   <h5>WEABLE INVENTORY</h5>
@@ -81,13 +83,16 @@
                     <br><br>
                     <!-- <a href="./search.php" class="text-secondary">Search Products</a> -->
                     <a href="/">Go Back</a>
+                    <br>
+                    <br>
+                    <a href="logout.php">Logout</a>
                 </div>
                 <!-- end menu -->
           </div>
 
-              <div>
 
-                <nav class="navbar navbar-expand-lg navbar-light" id="navbar-responsive">
+                  <div class="col">
+                <nav class="navbar navbar-expand-lg navbar-light col-10" id="navbar-responsive">
                   <a class="navbar-brand" href="/">Weable Inventory</a>
                   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -95,8 +100,8 @@
 
                   <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav mr-auto">
-                      <li class="nav-item active">
-                        <a class="nav-link" href="./create.php">Create Inventory <span class="sr-only">(current)</span></a>
+                      <li class="nav-item">
+                        <a class="nav-link" href="./create.php">Create Inventory</a>
                       </li>
                       <li class="nav-item">
                         <a class="nav-link" href="/">All Inventory</a>
@@ -141,6 +146,16 @@
                   </div>
                       <br>
                  <!-- search end -->
+                 <br>
+                 <div class="pagination ml-5 mr-2 pl-3">
+                   <p>Displaying Pages </p>
+                   <div class="page-count">
+                   <?php for($x = 1; $x <= $pages; $x++): ?>
+                     <a href="?page=<?php echo $x; ?>&per-page=<?php echo $perPage; ?>"<?php if($page === $x) {echo ' class="selected"'; } ?>><?php echo $x; ?></a>
+                   <?php endfor; ?>
+                 </div>
+                 </div>
+
                   <div class="row-seperator"></div>
                 <br><br>
 
@@ -211,6 +226,11 @@
                   </div>
                   <button class="update-btn mt-5" type="submit">Save</button>
                 </form>
+              </div>
+              </div>
+            </div>
+      </div>
+    </div>
 
                 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
                 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
