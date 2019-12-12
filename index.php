@@ -51,167 +51,190 @@
   <html>
     <head>
       <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes">
+      <!-- <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes"> -->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-      <!-- Bootstrap sCSS -->
-      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-      <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
-      integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+      <!-- Bootstrap CSS -->
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+      <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+      <!-- added scripts -->
+      <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
+      <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
+
+      <!-- custom stylesheet -->
       <link rel="stylesheet" href="./css/styles.css">
       <title>Weable Inventory Managemt</title>
     </head>
 
     <body>
-      <div class="container-fluid">
-      <div class="row">
-      <div class="col-2" id="aside">
+      <div class="wrapper">
+
+             <!-- Sidebar -->
+             <nav id="sidebar">
+               <div class="logo">
+                 <img src="./images/logo_trans2.png">
+               </div>
+
+               <div class="sidebar-header">
+                 <h4>WEABLE<br>INVENTORY</h4>
+               </div>
+               <br> <br>
+         <ul class="list-unstyled components">
+              <!-- <p>Dashboard</p> -->
+
+             <li>
+                 <a href="/">HOME</a>
+             </li>
+
+             <li>
+                  <a href="./create.php">CREATE INVENTORY</a>
+             </li>
+             <li>
+                 <a href="./shopping_list.php">SHOPPING LIST</a>
+             </li>
+
+             <li>
+                <a href="all_inventory.php">ALL INVENTORY</a>
+             </li>
+
+             <li>
+                <a href="./logout.php">Logout</a>
+             </li>
+
+             <!-- <li class="nav-item">
+               <a class="nav-link" href="/">Go Back</a>
+             </li> -->
 
 
-  <!-- <div class="d-flex flex-row"> -->
-        <!-- <div class="col-2 p-3 mb-2 text-white text-center" id="aside"> -->
-          <div class="logo">
-            <img src="./images/logo_trans2.png">
-              <h5>WEABLE INVENTORY</h5>
-          </div>
+         </ul>
+       </nav>
+ <!-- Page Content -->
 
-              <!-- menu -->
-              <div class="aside-menu">
+ <div id="content">
 
-                <h6>Dashboard</h6>
 
-                <a href="./create.php" class="text-secondary">Create Inventory</a>
-                <br>
-                <br>
-                <a href="/" class="text-secondary">All Inventory</a>
-                <br>
-                <br>
-                <a href="./shopping_list.php" class="text-secondary">Shopping List</a>
-                <br>
-                <br>
-                <a href="logout.php">Logout</a>
-                <!-- <a href="./search.php" class="text-secondary">Search Products</a> -->
-              <!-- end menu -->
-              </div>
-        </div>
+ <nav class="navbar navbar-expand-lg navbar-light bg-light">
+         <div class="container-fluid">
 
-          <div class="col">
+             <button type="button" id="sidebarCollapse" class="btn btn-info">
+                 <i class="fas fa-align-left"></i>
+                 <span>Toggle Sidebar</span>
+             </button>
 
-            <nav class="navbar navbar-expand-lg navbar-light col-10 col-s-12" id="navbar-responsive">
-              <a class="navbar-brand" href="/">Weable Inventory</a>
-              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-              </button>
+         </div>
+     </nav>
 
-              <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav mr-auto">
+   <!-- We'll fill this with dummy content -->
 
-                  <li class="nav-item">
-                    <a class="nav-link" href="./create.php">Create Inventory</a>
-                  </li>
+<!-- total menu end -->
+<div class="col">
 
-                  <li class="nav-item">
-                    <a class="nav-link" href="/">All Inventory</a>
-                  </li>
 
-                  <li class="nav-item">
-                    <a class="nav-link" href="./shopping_list.php">Shopping List</a>
-                  </li>
 
-                  <li class="nav-item">
-                    <a class="nav-link" href="/">Go Back</a>
-                  </li>
 
-                  <li class="nav-item">
-                    <a class="nav-link" href="./logout.php">Log Out</a>
-                  </li>
-                </ul>
-
-              </div>
-            </nav>
-
-            <div class="menu-bar">
-            </div>
-            <br>
-              <!-- search form -->
-              <div class="search-form">
-                  <h4> All Inventory</h4>
-                  <br> <br>
-              <form action="search.php" method="get">
-                <label>
-                  Search Products
-                  <input type="text" name="keyword" autocomplete="off">
-                </label>
-
-                <input type="submit" class="btn text-light" value="Submit">
-              </form>
-                </div>
-                <br>
-              <!-- search form  end-->
-
-              <br>
-              <div class="pagination ml-5 mr-2 pl-3">
-                <p>Displaying Pages </p>
-                <div class="page-count">
-                <?php for($x = 1; $x <= $pages; $x++): ?>
-                  <a href="?page=<?php echo $x; ?>&per-page=<?php echo $perPage; ?>"<?php if($page === $x) {echo ' class="selected"'; } ?>><?php echo $x; ?></a>
-                <?php endfor; ?>
-              </div>
-              </div>
-              <div class="row-seperator">
-
-              </div>
-
-              <div class="container-fluid">
-            <table class="table table-hover" id="responsive-table">
-              <tr>
-                <th>id</th>
-                <th>category</th>
-                <th>item</th>
-                <th>brand</th>
-                <th>type</th>
-                <th>unit</th>
-                <th>size</th>
-                <th>expiration_date</th>
-                <th>stock_qty</th>
-                <th>store_location</th>
-                <th>price</th>
-                <th>edit</th>
-                <th>delete</th>
-              </tr>
-
-            <?php foreach($results as $inventory) { ?>
-              <tr>
-                <td><?php echo $inventory->id; ?></td>
-                <td><?php echo $inventory->category; ?></td>
-                <td><?php echo $inventory->item; ?></td>
-                <td><?php echo $inventory->brand; ?></td>
-                <td><?php echo $inventory->type; ?></td>
-                <td><?php echo $inventory->unit; ?></td>
-                <td><?php echo $inventory->size; ?></td>
-                <td><?php echo $inventory->expiration_date; ?></td>
-                <td><?php echo $inventory->stock_qty; ?></td>
-                <td><?php echo $inventory->store_location; ?></td>
-                <td><?php echo $inventory->price; ?></td>
-                <td>
-                  <a href="./update.php?id=<?php echo $inventory->id; ?>">edit</a>
-                </td>
-                <td>
-                  <a href="./delete.php?id=<?php echo $inventory->id; ?>" onclick="confirm()">delete</a>
-                </td>
-              </tr>
-
-              <?php } ?>
-            </table>
-          </div>
-          </div>
-        </div>
-  </div>
+<div class="menu-bar">
 </div>
+<br>
+  <!-- search form -->
+  <div class="search-form">
+      <h4>Dashboard</h4>
+      <br> <br>
+  <form action="search.php" method="get">
+    <label>
+      Search Products
+      <input type="text" name="keyword" autocomplete="off">
+    </label>
+
+    <input type="submit" class="btn text-light" value="Submit">
+  </form>
+    </div>
+    <br>
+  <!-- search form  end-->
+
+  <br>
+
+  <div class="row-seperator"></div>
+
+  <div class="container-fluid">
+
+    <div class="row">
+
+
+    <div class="card mt-4 m-2">
+      <div class="card-header">
+        Expiring Inventory
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">Products</h5>
+        <p class="card-text">Summary of the items expiring within a given date range.</p>
+        <a href="#" class="btn btn-primary">Search</a>
+      </div>
+    </div>
+
+    <div class="card  mt-4 m-2">
+      <div class="card-header">
+        Archived Products
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">Products</h5>
+        <p class="card-text">Summary of all items archived within a given date range.</p>
+        <a href="#" class="btn btn-primary">Search</a>
+      </div>
+    </div>
+
+    <div class="card  mt-4 m-2">
+      <div class="card-header">
+        Inventory Statistics
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">Report</h5>
+        <p class="card-text">Summary Report of all items and categories in inventory.</p>
+        <a href="#" class="btn btn-primary">Search</a>
+      </div>
+    </div>
+    </div>
+
+    <div class="row">
+      <div class="card mt-4 m-2">
+        <div class="card-header">
+          Inventory Activity and News
+        </div>
+        <div class="card-body">
+          <blockquote class="blockquote mb-0">
+            <p> Currently in development { Pagination on pages }
+            <p> Stay tuned, we are developing features to include reports, archive radio buttons and date stamp.</p>
+            <p> For technical support please email: leonredman917@gmail.com</p>
+            <footer class="blockquote-footer">December 7, 2019 <cite title="Source Title">Leon</cite></footer>
+          </blockquote>
+        </div>
+      </div>
+
+    </div>
+
+ </div>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
 
       <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
       <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+      <script>$(document).ready(function () {
+
+        $('#sidebarCollapse').on('click', function () {
+            $('#sidebar').toggleClass('active');
+        });
+
+    });
+    </script>
 
     </body>
   </html>
