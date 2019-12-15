@@ -119,7 +119,6 @@
                  </div>
              </nav>
 
-
                           <!--  menu end -->
       <div class="col">
 
@@ -140,9 +139,8 @@
               </form>
         </div>
           <br>
-              <!-- search form  end-->
-
               <br>
+              <!-- search form  end-->
 
               <div class="row-seperator"></div>
 
@@ -168,8 +166,8 @@
 
                       <div class="card-body">
                         <h5 class="card-title">Products</h5>
-                          <p class="card-text">Summary of all items archived within a given date range.</p>
-                            <a href="#" class="btn btn-primary">Search</a>
+                        <p class="card-text">Summary of all items archived within a given date range.</p>
+                        <a href="#" class="btn btn-primary">Search</a>
                       </div>
                     </div>
 
