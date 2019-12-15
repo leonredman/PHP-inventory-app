@@ -6,6 +6,7 @@
 
   if(isset($_SESSION["username"]))
   {
+
     // echo '<h3>Login Success, Welcome - '.$_SESSION["username"].'</h3>';
     // echo '<br /><br /><a href="/logout.php">Logout</a>';
   }
@@ -71,7 +72,7 @@
     <body>
       <div class="wrapper">
 
-             <!-- Sidebar -->
+                  <!-- Sidebar -->
              <nav id="sidebar">
                <div class="logo">
                  <img src="./images/logo_trans2.png">
@@ -80,148 +81,129 @@
                <div class="sidebar-header">
                  <h4>WEABLE<br>INVENTORY</h4>
                </div>
-               <br> <br>
-         <ul class="list-unstyled components">
-              <!-- <p>Dashboard</p> -->
+                <br> <br>
+                  <ul class="list-unstyled components">
+                    <!-- <p>Dashboard</p> -->
 
-             <li>
-                 <a href="/">HOME</a>
-             </li>
+                    <li>
+                       <a href="/">HOME</a>
+                    </li>
+                    <li>
+                        <a href="./create.php">CREATE INVENTORY</a>
+                    </li>
+                    <li>
+                       <a href="./shopping_list.php">SHOPPING LIST</a>
+                    </li>
+                    <li>
+                       <a href="all_inventory.php">ALL INVENTORY</a>
+                    </li>
+                    <li>
+                      <a href="./logout.php">Logout</a>
+                    </li>
 
-             <li>
-                  <a href="./create.php">CREATE INVENTORY</a>
-             </li>
-             <li>
-                 <a href="./shopping_list.php">SHOPPING LIST</a>
-             </li>
+                       <!-- <li class="nav-item">
+                         <a class="nav-link" href="/">Go Back</a>
+                       </li> -->
+                  </ul>
+                </nav>
 
-             <li>
-                <a href="all_inventory.php">ALL INVENTORY</a>
-             </li>
+            <div id="content">
 
-             <li>
-                <a href="./logout.php">Logout</a>
-             </li>
+              <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="container-fluid">
 
-             <!-- <li class="nav-item">
-               <a class="nav-link" href="/">Go Back</a>
-             </li> -->
-
-
-         </ul>
-       </nav>
- <!-- Page Content -->
-
- <div id="content">
-
-
- <nav class="navbar navbar-expand-lg navbar-light bg-light">
-         <div class="container-fluid">
-
-             <button type="button" id="sidebarCollapse" class="btn btn-info">
-                 <i class="fas fa-align-left"></i>
-                 <span>Toggle Sidebar</span>
-             </button>
-
-         </div>
-     </nav>
-
-   <!-- We'll fill this with dummy content -->
-
-<!-- total menu end -->
-<div class="col">
+                  <button type="button" id="sidebarCollapse" class="btn btn-info">
+                      <i class="fas fa-align-left"></i>
+                        <span>Toggle Sidebar</span>
+                   </button>
+                 </div>
+             </nav>
 
 
+                          <!--  menu end -->
+      <div class="col">
 
-
-<div class="menu-bar">
-</div>
-<br>
-  <!-- search form -->
-  <div class="search-form">
-      <h4>Dashboard</h4>
-      <br> <br>
-  <form action="search.php" method="get">
-    <label>
-      Search Products
-      <input type="text" name="keyword" autocomplete="off">
-    </label>
-
-    <input type="submit" class="btn text-light" value="Submit">
-  </form>
-    </div>
-    <br>
-  <!-- search form  end-->
-
-  <br>
-
-  <div class="row-seperator"></div>
-
-  <div class="container-fluid">
-
-    <div class="row">
-
-
-    <div class="card mt-4 m-2">
-      <div class="card-header">
-        Expiring Inventory
-      </div>
-      <div class="card-body">
-        <h5 class="card-title">Products</h5>
-        <p class="card-text">Summary of the items expiring within a given date range.</p>
-        <a href="#" class="btn btn-primary">Search</a>
-      </div>
-    </div>
-
-    <div class="card  mt-4 m-2">
-      <div class="card-header">
-        Archived Products
-      </div>
-      <div class="card-body">
-        <h5 class="card-title">Products</h5>
-        <p class="card-text">Summary of all items archived within a given date range.</p>
-        <a href="#" class="btn btn-primary">Search</a>
-      </div>
-    </div>
-
-    <div class="card  mt-4 m-2">
-      <div class="card-header">
-        Inventory Statistics
-      </div>
-      <div class="card-body">
-        <h5 class="card-title">Report</h5>
-        <p class="card-text">Summary Report of all items and categories in inventory.</p>
-        <a href="#" class="btn btn-primary">Search</a>
-      </div>
-    </div>
-    </div>
-
-    <div class="row">
-      <div class="card mt-4 m-2">
-        <div class="card-header">
-          Inventory Activity and News
+        <div class="menu-bar">
         </div>
-        <div class="card-body">
-          <blockquote class="blockquote mb-0">
-            <p> Currently in development { Pagination on pages }
-            <p> Stay tuned, we are developing features to include reports, archive radio buttons and date stamp.</p>
-            <p> For technical support please email: leonredman917@gmail.com</p>
-            <footer class="blockquote-footer">December 7, 2019 <cite title="Source Title">Leon</cite></footer>
-          </blockquote>
+        <br>
+                          <!-- search form -->
+        <div class="search-form">
+          <h4>Dashboard</h4>
+            <br> <br>
+              <form action="search.php" method="get">
+                <label>
+                  Search Products
+                  <input type="text" name="keyword" autocomplete="off">
+                </label>
+
+                <input type="submit" class="btn text-light" value="Submit">
+              </form>
         </div>
-      </div>
+          <br>
+              <!-- search form  end-->
 
-    </div>
+              <br>
 
- </div>
+              <div class="row-seperator"></div>
 
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
+                <div class="container-fluid">
 
+                  <div class="row">
+
+                    <div class="card mt-4 m-2">
+                      <div class="card-header">
+                        Expiring Inventory
+                      </div>
+                      <div class="card-body">
+                        <h5 class="card-title">Products</h5>
+                          <p class="card-text">Summary of the items expiring within a given date range.</p>
+                            <a href="#" class="btn btn-primary">Search</a>
+                      </div>
+                    </div>
+
+                    <div class="card  mt-4 m-2">
+                      <div class="card-header">
+                        Archived Products
+                      </div>
+
+                      <div class="card-body">
+                        <h5 class="card-title">Products</h5>
+                          <p class="card-text">Summary of all items archived within a given date range.</p>
+                            <a href="#" class="btn btn-primary">Search</a>
+                      </div>
+                    </div>
+
+                    <div class="card  mt-4 m-2">
+                      <div class="card-header">
+                        Inventory Statistics
+                      </div>
+                      <div class="card-body">
+                        <h5 class="card-title">Report</h5>
+                        <p class="card-text">Summary Report of all items and categories in inventory.</p>
+                        <a href="#" class="btn btn-primary">Search</a>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="card mt-4 m-2">
+                      <div class="card-header">
+                        Inventory Activity and News
+                      </div>
+                      <div class="card-body">
+                        <blockquote class="blockquote mb-0">
+                          <p> Currently in development { Pagination on pages }
+                          <p> Stay tuned, we are developing features to include reports, archive radio buttons and date stamp.</p>
+                          <p> For technical support please email: leonredman917@gmail.com</p>
+                          <footer class="blockquote-footer">December 7, 2019 <cite title="Source Title">Leon</cite></footer>
+                        </blockquote>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
 
       <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
