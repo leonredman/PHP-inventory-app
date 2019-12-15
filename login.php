@@ -1,9 +1,9 @@
   <?php
   session_start();
-  $host = "localhost";
-  $username = "root";
-  $password = "root";
-  $database = "inventory";
+  $host = "us-cdbr-iron-east-05.cleardb.net";
+  $username = "b6142378047cd5";
+  $password = "a549180b";
+  $database = "heroku_94df7b248ed20e6";
   $message = "";
 
   // if page breaks can use login tutorial https://www.youtube.com/watch?v=b-2_Y53CTYA
