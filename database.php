@@ -1,13 +1,13 @@
 <?php
 
-// Database connection
-// added port=8889 for mamp local server
+
+
 
 function connectDB(){
 
   try {
 
-    $database = new PDO('mysql:host=localhost;dbname=inventory', 'root', 'root');
+    $database = new PDO('mysql:host=us-cdbr-iron-east-05.cleardb.net;dbname=heroku_94df7b248ed20e6', 'b6142378047cd5', 'a549180b');
     $database->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     // echo "<h4 style='color: green;'>Database Connected</h4>";
     return $database;
