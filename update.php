@@ -34,7 +34,7 @@
 
     try{
       $statement = $pdo->prepare(
-        'UPDATE inventory SET category = :category, item = :item, brand = :brand, unit = :unit, size = :size, expiration_date = :expiration_date,
+        'UPDATE heroku_94df7b248ed20e6 SET category = :category, item = :item, brand = :brand, unit = :unit, size = :size, expiration_date = :expiration_date,
         stock_qty = :stock_qty, store_location = :store_location where id = :id');
         $statement->execute(['category' => $category, 'item' => $item, 'brand' => $brand, 'unit' => $unit,
          'size' => $size, 'expiration_date' => $expiration_date, 'stock_qty' => $stock_qty, 'store_location' => $store_location, "id" => $id]);
@@ -50,7 +50,7 @@
 
      try{
        $statement = $pdo->prepare(
-         'SELECT * FROM inventory where id = :id;'
+         'SELECT * FROM heroku_94df7b248ed20e6 where id = :id;'
        );
        $statement->execute(["id" => $id]);
 
