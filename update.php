@@ -1,31 +1,43 @@
   <?php
 
+
+  session_start();
+
+  if(isset($_SESSION["username"]))
+  {
+    // echo '<h3>Login Success, Welcome - '.$_SESSION["username"].'</h3>';
+    // echo '<br /><br /><a href="/logout.php">Logout</a>';
+  }
+  else {
+    {
+      header("location:./login.php");
+    }
+  }
+
     require('database.php');
       // POST
       // GET
-      //PUT
-      //DELETE
+      // PUT
+      // DELETE
 
    // HANDLES  POST request
    if($_SERVER['REQUEST_METHOD'] == "POST" && isset($_GET["id"]) && $_POST["_method"] == "PUT") {
      $category = $_POST["category"];
      $item = $_POST["item"];
      $brand = $_POST["brand"];
-     $type = $_POST["type"];
      $unit = $_POST["unit"];
      $size = $_POST["size"];
      $expiration_date = $_POST["expiration_date"];
      $stock_qty = $_POST["stock_qty"];
      $store_location = $_POST["store_location"];
-     $price = $_POST["price"];
      $id = $_GET["id"];
 
     try{
       $statement = $pdo->prepare(
-        'UPDATE inventory SET category = :category, item = :item, brand = :brand, type = :type, unit = :unit, size = :size, expiration_date = :expiration_date,
-        stock_qty = :stock_qty, store_location = :store_location, price = :price where id = :id');
-        $statement->execute(['category' => $category, 'item' => $item, 'brand' => $brand, 'type' => $type, 'unit' => $unit,
-         'size' => $size, 'expiration_date' => $expiration_date, 'stock_qty' => $stock_qty, 'store_location' => $store_location, 'price' => $price, "id" => $id]);
+        'UPDATE inventory SET category = :category, item = :item, brand = :brand, unit = :unit, size = :size, expiration_date = :expiration_date,
+        stock_qty = :stock_qty, store_location = :store_location where id = :id');
+        $statement->execute(['category' => $category, 'item' => $item, 'brand' => $brand, 'unit' => $unit,
+         'size' => $size, 'expiration_date' => $expiration_date, 'stock_qty' => $stock_qty, 'store_location' => $store_location, "id" => $id]);
         echo "updated the data";
      } catch(PDOException $e){
       echo "<h4 style='color: red;'>".$e->getMessage(). "</h4>";
@@ -63,36 +75,14 @@
 
     <body>
       <div class="container-fluid">
-      <div class="row">
-      <div class="col-2" id="aside">
-      <!-- <div class="d-flex flex-row">
-          <div class="col-2 p-3 mb-2 text-white text-center" id="create-aside"> -->
-              <div class="logo">
-                <img src="./images/logo_trans2.png">
-                  <h5>WEABLE INVENTORY</h5>
-              </div>
 
-                <!-- menu -->
-                <div class="aside-menu">
-                  <h6>Dashboard</h6>
-                    <a href="./create.php" class="text-secondary">Create Inventory</a>
-                    <br><br>
-                    <a href="/" class="text-secondary">All Inventory</a>
-                    <br><br>
-                    <a href="./shopping_list.php" class="text-secondary">Shopping List</a>
-                    <br><br>
-                    <!-- <a href="./search.php" class="text-secondary">Search Products</a> -->
-                    <a href="/">Go Back</a>
-                    <br>
-                    <br>
-                    <a href="logout.php">Logout</a>
-                </div>
+                <!-- </div> -->
                 <!-- end menu -->
-          </div>
+          <!-- </div> -->
 
 
-                  <div class="col">
-                <nav class="navbar navbar-expand-lg navbar-light col-10" id="navbar-responsive">
+                  <!-- <div class="col"> -->
+                <nav class="navbar navbar-expand-lg navbar-light" id="navbar-responsive">
                   <a class="navbar-brand" href="/">Weable Inventory</a>
                   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -123,11 +113,6 @@
                   </div>
                 </nav>
 
-
-
-
-
-
                   <div class="menu-bar"></div>
                   <br></br>
 
@@ -138,7 +123,7 @@
                         <form action="search.php" method="get">
                           <label>
                             Search Products
-                              <input type="text" name="keyword" autocomplete="off">
+                              <input type="text"  class="form-control" name="keyword" autocomplete="off">
                           </label>
 
                           <input type="submit" class="btn text-light" value="Submit">
@@ -147,81 +132,82 @@
                       <br>
                  <!-- search end -->
                  <br>
-                 <div class="pagination ml-5 mr-2 pl-3">
+                 <!-- <div class="pagination ml-5 mr-2 pl-3">
                    <p>Displaying Pages </p>
                    <div class="page-count">
                    <?php for($x = 1; $x <= $pages; $x++): ?>
                      <a href="?page=<?php echo $x; ?>&per-page=<?php echo $perPage; ?>"<?php if($page === $x) {echo ' class="selected"'; } ?>><?php echo $x; ?></a>
                    <?php endfor; ?>
                  </div>
-                 </div>
+                 </div> -->
 
                   <div class="row-seperator"></div>
                 <br><br>
 
+                <div class="container" id="update-container">
 
+                      <form class="form" action="./update.php?id=<?php echo $results[0]->id; ?>" method="POST">
+                        <input type="hidden" name="_method" value="PUT">
 
+                        <div class="row">
+                              <div class="form-group col-md-6">
+                                <label for="category">Category</label><br>
+                                <input type="text" class="form-control" name="category" value="<?php echo $results[0]->category; ?>"><br><br>
+                              </div>
+                        </div>
 
-                <form class="form ml-4 pl-4" action="./update.php?id=<?php echo $results[0]->id; ?>" method="POST">
-                  <input type="hidden" name="_method" value="PUT">
+                        <div class="row">
+                          <div class="form-group col-md-6">
+                            <label for="item">Item</label><br>
+                            <input type="text" class="form-control" name="item" value="<?php echo $results[0]->item; ?>"><br>
+                          </div>
 
-                  <label for="category">Category</label><br>
-                  <input type="text" name="category" value="<?php echo $results[0]->category; ?>"><br><br>
+                          <div class="form-group col-md-6">
+                            <label for="brand">Brand</label><br>
+                            <input type="text" class="form-control" name="brand" value="<?php echo $results[0]->brand; ?>"><br>
+                          </div>
+
+                          <!-- <div class="col-4">
+                            <label for="type">Type</label><br>
+                            <input type="text" name="type" value="<?php echo $results[0]->type; ?>"><br>
+                          </div> -->
+                        </div>
+
+                        <br>
 
                   <div class="row">
-                      <div class="col-4">
-
-                        <label for="item">Item</label><br>
-                        <input type="text" name="item" value="<?php echo $results[0]->item; ?>"><br>
-                      </div>
-
-
-                      <div class="col-4">
-                        <label for="brand">Brand</label><br>
-                        <input type="text" name="brand" value="<?php echo $results[0]->brand; ?>"><br>
-                      </div>
-
-                      <div class="col-4">
-                        <label for="type">Type</label><br>
-                        <input type="text" name="type" value="<?php echo $results[0]->type; ?>"><br>
-                      </div>
-                  </div>
-
-                  <br>
-
-                  <div class="row">
-                      <div class="col-4">
+                      <div class="form-group col-md-4">
                         <label for="unit">Unit</label><br>
                         <input type="text" name="unit" value="<?php echo $results[0]->unit; ?>"><br>
                       </div>
 
-                      <div class="col-4">
+                      <div class="form-group col-md-4">
                         <label for="size">Size</label><br>
-                        <input type="text" name="size" value="<?php echo $results[0]->size; ?>"><br>
+                        <input type="text" class="form-control" name="size" value="<?php echo $results[0]->size; ?>"><br>
                       </div>
 
-                      <div class="col-4">
+                      <div class="form-group col-md-4">
                         <label for="expiration_date">Expiration Date</label><br>
-                        <input type="text" name="expiration_date" value="<?php echo $results[0]->expiration_date; ?>"><br>
+                        <input type="text" class="form-control" name="expiration_date" value="<?php echo $results[0]->expiration_date; ?>"><br>
                       </div>
                   </div>
 
                   <br>
 
                   <div class="row">
-                      <div class="col-4">
+                      <div class="form-group col-md-4">
                         <label for="stock_qty">Stock Qty</label><br>
-                        <input type="text" name="stock_qty" value="<?php echo $results[0]->stock_qty; ?>"><br>
+                        <input type="text" class="form-control" name="stock_qty" value="<?php echo $results[0]->stock_qty; ?>"><br>
                       </div>
 
-                      <div class="col-4">
+                      <div class="form-group col-md-4">
                         <label for="store_location">Store Location</label><br>
-                        <input type="text" name="store_location" value="<?php echo $results[0]->store_location; ?>"><br>
+                        <input type="text" class="form-control" name="store_location" value="<?php echo $results[0]->store_location; ?>"><br>
                       </div>
 
-                      <div class="col-4">
+                      <div class="form-group col-md-4">
                         <label for="price">Price</label><br>
-                        <input type="text" name="price" value="<?php echo $results[0]->price; ?>"><br>
+                        <input type="text"  class="form-control" name="price" value="<?php echo $results[0]->price; ?>"><br>
                       </div>
                   </div>
                   <button class="update-btn mt-5" type="submit">Save</button>
