@@ -59,7 +59,7 @@
    <body>
      <div class="container-fluid">
 
-  <nav class="navbar navbar-expand-lg navbar-light col-10" id="navbar-responsive">
+  <nav class="navbar navbar-expand-lg navbar-light" id="navbar-responsive">
     <a class="navbar-brand" href="/">Weable Inventory</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -124,7 +124,7 @@
 
      </div>
 
-  
+
 
        <table class="table table-hover">
      <tr>
@@ -156,7 +156,23 @@
 
      <?php } ?>
    </table>
+   <br>
+
+   <div class="pagination ml-5 mr-2 pl-3">
+                 <p>Displaying Pages </p>
+                 <div class="page-count">
+                 <?php for($x = 1; $x <= $pages; $x++): ?>
+                   <a href="?page=<?php echo $x; ?>&per-page=<?php echo $perPage; ?>"<?php if($page === $x) {echo ' class="selected"'; } ?>><?php echo $x; ?></a>
+                 <?php endfor; ?>
+
  </div>
+</div>
+     </div>
+     </div>
+    
+
+
+
 
 
          <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
