@@ -1,16 +1,42 @@
   <?php
 
+    session_start();
+
+    if(isset($_SESSION["username"]))
+  {
+    // echo '<h3>Login Success, Welcome - '.$_SESSION["username"].'</h3>';
+    // echo '<br /><br /><a href="/logout.php">Logout</a>';
+  }
+  else {
+    {
+      header("location:./login.php");
+    }
+  }
+
     require('database.php');
     initMigration($pdo);
+
+    $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
+    $perPage = isset($_GET['per-page']) && $_GET['per-page'] <= 50 ? (int)$_GET['per-page'] : 10;
+
+    // positioning
+      $start = ($page > 1) ? ($page * $perPage) - $perPage : 0;
+
+    $keywordfromform = $_GET["keyword"];
 
     if($_SERVER['REQUEST_METHOD'] == "GET") {
     try{
       $statement = $pdo->prepare(
-        'SELECT * FROM inventory WHERE stock_qty = 0;'
+        "SELECT SQL_CALC_FOUND_ROWS * FROM inventory WHERE stock_qty = 0 LIMIT {$start}, {$perPage};"
       );
       $statement->execute();
 
       $results = $statement->fetchAll(PDO::FETCH_OBJ);
+
+      //PAGES
+   $total = $pdo->query("SELECT FOUND_ROWS() as total")->fetch()['total'];
+   $pages = ceil($total / $perPage);
+
 
     } catch(PDOException $e){
       echo "<h4 style='color: red;'>".$e->getMessage(). "</h4>";
@@ -32,47 +58,11 @@
 
    <body>
      <div class="container-fluid">
-     <div class="row">
-     <div class="col-2" id="aside">
-
-
-     <!-- <div class="d-flex flex-row">
-           <div class="col-2 p-3 mb-2 text-white text-center" id="aside"> -->
-             <div class="logo">
-               <img src="./images/logo_trans2.png">
-                 <h5>WEABLE INVENTORY</h5>
-             </div>
-
-                 <!-- menu -->
-                 <div class="aside-menu">
-
-                   <h6>Dashboard</h6>
-
-     <!-- menu -->
-     <a href="./create.php" class="text-secondary">Create Inventory</a>
-     <br>
-     <br>
-     <a href="/" class="text-secondary">All Inventory</a>
-     <br>
-     <br>
-     <a href="./shopping_list.php" class="text-secondary">Shopping List</a>
-     <br>
-     <br>
-     <!-- <a href="./search.php" class="text-secondary">Search Products</a> -->
-     <a href="/">Go Back</a>
-     <br>
-     <br>
-     <a href="logout.php">Logout</a>
-   <!-- end menu -->
-
- </div>
-</div>
-
-<div class="col">
 
   <nav class="navbar navbar-expand-lg navbar-light col-10" id="navbar-responsive">
     <a class="navbar-brand" href="/">Weable Inventory</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
 
@@ -101,71 +91,61 @@
     </div>
   </nav>
 
-<div class="menu-bar">
+    <div class="menu-bar">
 
-</div>
-<br>
- <!-- search form -->
- <div class="search-form">
-     <h4> Shopping List</h4>
-     <br> <br>
- <form action="search.php" method="get">
-   <label>
-     Search Products
-     <input type="text" name="keyword" autocomplete="off">
-   </label>
+    </div>
+    <br>
+     <!-- search form -->
+     <div class="search-form">
+         <h4> Shopping List</h4>
+         <br> <br>
+     <form action="search.php" method="get">
+       <label>
+         Search Products
+         <input type="text" name="keyword" autocomplete="off">
+       </label>
 
-   <input type="submit" class="btn text-light" value="Submit">
- </form>
-   </div>
-   <br>
- <!-- search form  end-->
+       <input type="submit" class="btn text-light" value="Submit">
+     </form>
+       </div>
+       <br>
+     <!-- search form  end-->
 
- <br>
- <div class="pagination ml-5 mr-2 pl-3">
-   <p>Displaying Pages </p>
-   <div class="page-count">
-   <?php for($x = 1; $x <= $pages; $x++): ?>
-     <a href="?page=<?php echo $x; ?>&per-page=<?php echo $perPage; ?>"<?php if($page === $x) {echo ' class="selected"'; } ?>><?php echo $x; ?></a>
-   <?php endfor; ?>
- </div>
-</div>
- <div class="row-seperator">
+     <br>
+     <div class="pagination ml-5 mr-2 pl-3">
+       <p>Displaying Pages </p>
+       <div class="page-count">
+       <?php for($x = 1; $x <= $pages; $x++): ?>
+         <a href="?page=<?php echo $x; ?>&per-page=<?php echo $perPage; ?>"<?php if($page === $x) {echo ' class="selected"'; } ?>><?php echo $x; ?></a>
+       <?php endfor; ?>
+     </div>
+    </div>
+     <div class="row-seperator">
 
- </div>
+     </div>
 
-  <div class="container-fluid">
+  
 
-       <table class="table table-hover" id="responsive-table">
+       <table class="table table-hover">
      <tr>
-       <!-- <th>id</th> -->
-       <!-- <th>category</th> -->
        <th>item</th>
        <th>brand</th>
-       <th>type</th>
        <th>unit</th>
        <th>size</th>
-       <!-- <th>expiration_date</th> -->
        <th>stock_qty</th>
        <th>store_location</th>
-       <!-- <th>price</th> -->
        <th>edit</th>
        <th>delete</th>
      </tr>
 
    <?php foreach($results as $inventory) { ?>
      <tr>
-       <!-- <td><?php echo $inventory->id; ?></td> -->
-       <!-- <td><?php echo $inventory->category; ?></td> -->
        <td><?php echo $inventory->item; ?></td>
        <td><?php echo $inventory->brand; ?></td>
-       <td><?php echo $inventory->type; ?></td>
        <td><?php echo $inventory->unit; ?></td>
        <td><?php echo $inventory->size; ?></td>
-       <!-- <td><?php echo $inventory->expiration_date; ?></td> -->
        <td><?php echo $inventory->stock_qty; ?></td>
        <td><?php echo $inventory->store_location; ?></td>
-       <!-- <td><?php echo $inventory->price; ?></td> -->
        <td>
          <a href="./update.php?id=<?php echo $inventory->id; ?>">edit</a>
        </td>
@@ -176,11 +156,6 @@
 
      <?php } ?>
    </table>
-
- </div>
- </div>
- </div>
- </div>
  </div>
 
 
