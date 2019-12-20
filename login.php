@@ -74,7 +74,7 @@
            <br>
            <h3 align="center">USER LOGIN</h3>
            <br>
-            <h4 align="center">login with username and password 'ADMIN' for the demo version of the app.</h3>
+            <h6 align="center">login with username and password 'ADMIN' for the demo version of the app.</h6>
           <div class="form-container">
 
            <form method="post">
