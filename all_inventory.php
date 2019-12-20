@@ -164,19 +164,19 @@
                 <th>Delete</th>
               </tr>
 
-            <?php foreach($results as $inventory3) { ?>
+            <?php foreach($results as $inventory) { ?>
               <tr>
-                <!-- <td><?php echo $inventory3->id; ?></td> -->
-                <td><?php echo $inventory3->category; ?></td>
-                <td><?php echo $inventory3->item; ?></td>
-                <td><?php echo $inventory3->brand; ?></td>
-                <!-- <td><?php echo $inventory3->type; ?></td> -->
-                <td><?php echo $inventory3->unit; ?></td>
-                <td><?php echo $inventory3->size; ?></td>
-                <td><?php echo $inventory3->expiration_date; ?></td>
-                <td><?php echo $inventory3->stock_qty; ?></td>
-                <td><?php echo $inventory3->store_location; ?></td>
-                <!-- <td><?php echo $inventory3->price; ?></td> -->
+                <!-- <td><?php echo $inventory->id; ?></td> -->
+                <td><?php echo $inventory->category; ?></td>
+                <td><?php echo $inventory->item; ?></td>
+                <td><?php echo $inventory->brand; ?></td>
+                <!-- <td><?php echo $inventory->type; ?></td> -->
+                <td><?php echo $inventory->unit; ?></td>
+                <td><?php echo $inventory->size; ?></td>
+                <td><?php echo $inventory->expiration_date; ?></td>
+                <td><?php echo $inventory->stock_qty; ?></td>
+                <td><?php echo $inventory->store_location; ?></td>
+                <!-- <td><?php echo $inventory->price; ?></td> -->
                 <td>
                   <a href="./update.php?id=<?php echo $inventory->id; ?>">edit</a>
                 </td>
