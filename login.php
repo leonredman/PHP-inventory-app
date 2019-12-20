@@ -70,10 +70,11 @@
        <br>
 
          <div class="container col-lg-4 col-md-8 col-sm-4 col-xs-3">
-           <h1 align="center">WELCOME<br> TO<br> WEABLE INVENTORY</h1>
+           <h1 align="center">WELCOME<br> TO<br>INVENTORY MANAGEMENT</h1>
            <br>
            <h3 align="center">USER LOGIN</h3>
            <br>
+            <h4 align="center">login with username and password 'ADMIN' for the demo version of the app.</h3>
           <div class="form-container">
 
            <form method="post">
