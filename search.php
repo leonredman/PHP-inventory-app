@@ -43,35 +43,8 @@
 
    <body>
      <div class="container-fluid">
-       <div class="row">
-         <div class="col-2" id="aside">
-
-           <!-- <div class="d-flex flex-row">
-           <div class="col-2 p-3 mb-2 text-white text-center" id="aside"> -->
-            <div class="logo">
-              <img src="./images/logo_trans2.png">
-              <h5>WEABLE INVENTORY</h5>
-            </div>
-              <!-- menu -->
-              <div class="aside-menu">
-                <h6>Dashboard</h6>
-
-                <a href="./create.php" class="text-secondary">Create Inventory</a>
-                <br>
-                <br>
-                <a href="/" class="text-secondary">All Inventory</a>
-                <br>
-                <br>
-                <a href="./shopping_list.php" class="text-secondary">Shopping List</a>
-                <br>
-                <br>
-                <a href="logout.php">Logout</a>
-               <!-- end menu -->
-              </div>
-            </div>
-
-             <div class="col">
-               <nav class="navbar navbar-expand-lg navbar-light col-10" id="navbar-responsive">
+    
+               <nav class="navbar navbar-expand-lg navbar-light" id="navbar-responsive">
                  <a class="navbar-brand" href="/">Weable Inventory</a>
                  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                    <span class="navbar-toggler-icon"></span>
@@ -120,15 +93,7 @@
    <br> <br>
  <!-- search form  end-->
 
-  <br>
- <div class="pagination ml-5 mr-2 pl-3">
-   <p>Displaying Pages </p>
-   <div class="page-count">
-   <?php for($x = 1; $x <= $pages; $x++): ?>
-     <a href="?page=<?php echo $x; ?>&per-page=<?php echo $perPage; ?>"<?php if($page === $x) {echo ' class="selected"'; } ?>><?php echo $x; ?></a>
-   <?php endfor; ?>
- </div>
- </div>
+
 
  <div class="row-seperator">
 
@@ -137,34 +102,34 @@
 <div class="container-fluid">
  <table class="table table-hover" id="responsive-table">
 <tr>
-  <th>id</th>
+  <!-- <th>id</th> -->
   <th>category</th>
   <th>item</th>
   <th>brand</th>
-  <th>type</th>
+  <!-- <th>type</th> -->
   <th>unit</th>
   <th>size</th>
   <th>expiration_date</th>
   <th>stock_qty</th>
   <th>store_location</th>
-  <th>price</th>
+  <!-- <th>price</th> -->
   <th>edit</th>
   <th>delete</th>
 </tr>
 
 <?php foreach($results as $inventory) { ?>
   <tr>
-    <td><?php echo $inventory->id; ?></td>
+    <!-- <td><?php echo $inventory->id; ?></td> -->
     <td><?php echo $inventory->category; ?></td>
     <td><?php echo $inventory->item; ?></td>
     <td><?php echo $inventory->brand; ?></td>
-    <td><?php echo $inventory->type; ?></td>
+    <!-- <td><?php echo $inventory->type; ?></td> -->
     <td><?php echo $inventory->unit; ?></td>
     <td><?php echo $inventory->size; ?></td>
     <td><?php echo $inventory->expiration_date; ?></td>
     <td><?php echo $inventory->stock_qty; ?></td>
     <td><?php echo $inventory->store_location; ?></td>
-    <td><?php echo $inventory->price; ?></td>
+    <!-- <td><?php echo $inventory->price; ?></td> -->
     <td>
       <a href="./update.php?id=<?php echo $inventory->id; ?>">edit</a>
     </td>
@@ -175,6 +140,16 @@
 
   <?php } ?>
 </table>
+
+<br>
+<div class="pagination ml-5 mr-2 pl-3">
+ <p>Displaying Pages </p>
+ <div class="page-count">
+ <?php for($x = 1; $x <= $pages; $x++): ?>
+   <a href="?page=<?php echo $x; ?>&per-page=<?php echo $perPage; ?>"<?php if($page === $x) {echo ' class="selected"'; } ?>><?php echo $x; ?></a>
+ <?php endfor; ?>
+</div>
+</div>
 </div>
 </div>
 </div>
