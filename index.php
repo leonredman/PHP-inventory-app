@@ -19,7 +19,7 @@
     require('database.php');
     initMigration($pdo);
 
-    // pagination user input tutorial https://www.youtube.com/watch?v=8WoxPWVxXHI
+    // pagination
      $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
      $perPage = isset($_GET['per-page']) && $_GET['per-page'] <= 50 ? (int)$_GET['per-page'] : 3;
      // positioning
@@ -39,7 +39,7 @@
       $results = $statement->fetchAll(PDO::FETCH_OBJ);
       // echo "Read from table users</br>";
 
-      //PAGES
+      //pages
      $total = $pdo->query("SELECT FOUND_ROWS() as total")->fetch()['total'];
      $pages = ceil($total / $perPage);
 
@@ -52,7 +52,7 @@
   <html>
     <head>
       <meta charset="utf-8">
-      <!-- <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes"> -->
+
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
@@ -100,10 +100,6 @@
                     <li>
                       <a href="./logout.php">Logout</a>
                     </li>
-
-                       <!-- <li class="nav-item">
-                         <a class="nav-link" href="/">Go Back</a>
-                       </li> -->
                   </ul>
                 </nav>
 
