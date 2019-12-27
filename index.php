@@ -83,7 +83,6 @@
                </div>
                 <br> <br>
                   <ul class="list-unstyled components">
-                    <!-- <p>Dashboard</p> -->
 
                     <li>
                        <a href="/">HOME</a>
