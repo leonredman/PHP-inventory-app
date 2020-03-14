@@ -136,7 +136,22 @@
                         <div class="row">
                               <div class="form-group col-md-6">
                                 <label for="category">Category</label><br>
-                                <input type="text" class="form-control" name="category" value="<?php echo $results[0]->category; ?>"><br><br>
+                                <select name="category" value="<?php echo $results[0]->category; ?>"><br><br>
+                                    <option value="Baking">Baking</option>
+                                    <option value="Beauty">Beauty</option>
+                                    <option value="Beverages">Beverages</option>
+                                    <option value="Condiments/Oils">Condiments/Oils</option>
+                                    <option value="Cleaning Supplies">Cleaning Supplies</option>
+                                    <option value="Frozen">Frozen</option>
+                                    <option value="Fish">Fish</option>
+                                    <option value="Grains">Grains</option>
+                                    <option value="Health">Health</option>
+                                    <option value="Meat">Meat</option>
+                                    <option value="Paper Goods">Paper Goods</option>
+                                    <option value="Poultry">Poultry</option>
+                                    <option value="Spices">Spices</option>
+                                  </select>
+                                
                               </div>
                         </div>
 
